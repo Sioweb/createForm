@@ -1,5 +1,6 @@
-# createForm
-Create a simple Form
+# CreateForm (Alpha)
+
+jQuery Plugin zur Erstellung von Formularen. 
 
 ### HowTo
 
