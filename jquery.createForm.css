@@ -1,0 +1,43 @@
+.panel_form {
+	font-size: 0;
+	margin-top: 20px;
+}
+
+.panel_form_left,
+.panel_form_right  {
+	width: 48%;
+	font-size: 16px;
+	vertical-align: top;
+	display: inline-block;
+}
+.panel_form_right  {
+	margin-left: 4%;
+}
+
+.panel_form .row {
+	margin-bottom: 10px;
+}
+
+.panel_form label {
+	width: 150px;
+}
+.panel_form input,
+.panel_form label {
+	font-size: 16px;
+	vertical-align: middle;
+	display: inline-block;
+}
+.panel_form input,
+.panel_form select,
+.panel_form textarea {
+	height: 30px;
+	border: 1px solid #222;
+	width: calc(100% - 150px);
+}
+.panel_form textarea {
+	height: 150px;
+}
+.panel_form .radio input,
+.panel_form .checkbox input {
+	width: auto;
+}
