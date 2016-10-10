@@ -98,6 +98,22 @@
       selfObj.block = data;
     };
 
+    this.spacer = function(data) {
+      var field = '';
+
+      data = $.extend({
+        class: 'spacer',
+        content: ''
+      },data);
+
+      field += data.content;
+
+      return selfObj.add($.extend(data,{
+        field: field,
+        class: data.class,
+      }));
+    }
+
     this.label = function(data) {
       var field = '',
           tags = false,
@@ -189,7 +205,7 @@
 
       return selfObj.add($.extend(data,{
         field: field,
-        class: data.type,
+        class: data.type+(data.class?' '+data.class:''),
       }));
     };
 
@@ -286,12 +302,13 @@
         data.values[v].id = data.name+'_'+v;
         if(data.values[v].value === undefined)
           data.values[v].value = data.values[v].label;
+        data.values[v].class = '';
         block += selfObj.text($.extend({},true,data,data.values[v]));
       }
 
       selfObj.add({
         field: block,
-        class: 'checkbox_container'
+        class: 'checkbox_container'+(data.class?' '+data.class:'')
       });
     };
 
@@ -316,12 +333,13 @@
         data.values[v].id = data.name+'_'+v;
         if(data.values[v].value === undefined)
           data.values[v].value = data.values[v].label;
+        data.values[v].class = '';
         block += selfObj.text($.extend({},true,data,data.values[v]));
       }
 
       selfObj.add({
         field: block,
-        class: 'radio_container'
+        class: 'radio_container'+(data.class?' '+data.class:'')
       });
       
     };
