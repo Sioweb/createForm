@@ -1,6 +1,10 @@
 .panel_form {
 	font-size: 0;
-	margin-top: 20px;
+	margin-top: 40px;
+}
+
+.panel_form fieldset {
+	border: 0 none;
 }
 
 .panel_form_left,
@@ -17,9 +21,32 @@
 .panel_form .row {
 	margin-bottom: 10px;
 }
+.panel_form .column {
+	width: 100%;
+	vertical-align: top;
+	display: inline-block;
+}
+.panel_form label + .column {
+	width: calc(100% - 150px);
+}
+.panel_form .content {
+	font-size: 16px;
+	padding-left: 150px;
+}
+.panel_form .column +.column {
+	margin-top: 10px;
+}
 
 .panel_form label {
 	width: 150px;
+	cursor: pointer;
+}
+.panel_form label.error {
+	color: red;
+	width: auto;
+	display: block;
+	margin-top: 5px;
+	padding-left: 150px;
 }
 .panel_form input,
 .panel_form label {
@@ -27,17 +54,53 @@
 	vertical-align: middle;
 	display: inline-block;
 }
+.panel_form .desc {
+	display: block;
+	margin-top: 5px;
+  font-size: 14px;
+}
 .panel_form input,
 .panel_form select,
 .panel_form textarea {
+	z-index: 2;
 	height: 30px;
+	position: relative;
 	border: 1px solid #222;
 	width: calc(100% - 150px);
+	-webkit-transition: border-color .25s;
+	-o-transition: border-color .25s;
+	transition: border-color .25s;
+}
+.panel_form input:not([type="checkbox"]):not([type="radio"]) {
+	padding: 0 10px;
+}
+.panel_form input.error,
+.panel_form select.error,
+.panel_form textarea.error {
+	border-color: red;
 }
 .panel_form textarea {
 	height: 150px;
+	padding: 7px 10px;
+	vertical-align: top;
 }
 .panel_form .radio input,
 .panel_form .checkbox input {
+	width: 30px;
+	margin-left: 150px;
+	margin-right: 10px;
+	vertical-align: top;
+}
+.panel_form .radio label,
+.panel_form .checkbox label {
 	width: auto;
+	padding-top: 6px;
+}
+
+.panel_form label + .column input {
+	margin-left: 0;
+}
+
+.radio_container + .radio_container {
+	margin-top: 40px;
 }
