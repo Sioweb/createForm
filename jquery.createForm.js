@@ -226,6 +226,8 @@
     this.number = function(data) {
       data = $.extend({
         type: 'number',
+        min: false,
+        max: false
       },data);
       selfObj.text(data);
     };
@@ -404,6 +406,9 @@
       },data);
 
       for(var i in selfObj.form) {
+        if(typeof selfObj.form[i] === 'function') continue;
+        // console.log(i,selfObj.form[i]);
+        // Output: wSetCSS function wDocument.wSetCSS()
         var className = i.replace(/_suffix-.*/,'');
         returnValue += '<div class="'+className+'">'+"\n";
           returnValue += selfObj.form[i].join("\n");
