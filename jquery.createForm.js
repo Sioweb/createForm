@@ -3,21 +3,23 @@
   "use strict";
 
   var pluginName = 'createForm',
-      /* Enter PluginOptions */
-      standardOptions = {
-	      debug: true,
-	      enabled: true,
-	      loadImagesFirst: true,
-	      container: window,
-	      isHtml: false,
-        formClass: 'panel_form',
-        formId: 'panel_type',
+      PluginClass;
 
-        generateForm: function(){},
+  /* Enter PluginOptions */
+  $[pluginName+'Default'] = {
+    debug: true,
+    enabled: true,
+    loadImagesFirst: true,
+    container: window,
+    isHtml: false,
+    formClass: 'panel_form',
+    formId: 'panel_type',
 
-        form: [],
-        block: {class:'block',suffix:''}
-	    },
+    generateForm: function(){},
+
+    form: [],
+    block: {class:'block',suffix:''}
+  };
 
   PluginClass = function() {
 
@@ -25,7 +27,7 @@
         img = null;
     this.item = false;
 
-    this.initOptions = new Object(standardOptions);
+    this.initOptions = new Object($[pluginName+'Default']);
     
     this.init = function(elem) {
       selfObj = this;
@@ -455,8 +457,8 @@
 
   $[pluginName] = $.fn[pluginName] = function(settings) {
     var element = typeof this === 'function'?$('html'):this,
-	newData = arguments[1]||{},
-	returnElement = [];
+      	newData = arguments[1]||{},
+      	returnElement = [];
         
     returnElement[0] = element.each(function(k,i) {
       var pluginClass = $.data(this, pluginName);
@@ -483,9 +485,9 @@
           if(element.prop('tagName').toLowerCase() !== 'html')
           	$.data(this, pluginName, pluginClass);
         } else {
-	  pluginClass.init(this,1);
-	  if(element.prop('tagName').toLowerCase() !== 'html')
-	    $.data(this, pluginName, pluginClass);
+      	  pluginClass.init(this,1);
+      	  if(element.prop('tagName').toLowerCase() !== 'html')
+            $.data(this, pluginName, pluginClass);
         }
       } else if(!pluginClass) {
         return;
