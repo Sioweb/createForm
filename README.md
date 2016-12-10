@@ -1,6 +1,6 @@
-# CreateForm (Alpha)
+# CreateForm (Beta)
 
-jQuery Plugin zur Erstellung von Formularen. 
+Simply create a form with blocks and input types.
 
 ### HowTo
 
